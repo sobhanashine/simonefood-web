@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --font-sans: var(--font-vazirmatn), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-vazirmatn), system-ui, -apple-system, sans-serif;
+  
+  --color-cookie-dark: #120c0a;
+  --color-cookie-chocolate: #2c1a15;
+  --color-cookie-milk-choco: #4b3621;
+  --color-cookie-cream: #fcf9f2;
+  --color-cookie-cream-dark: #ebdec9;
+  --color-cookie-gold: #d4af37;
+  --color-cookie-gold-dark: #b8901c;
+  
+  --color-cookie-pistachio: #587f3c;
+  --color-cookie-biscoff: #b0703c;
+  --color-cookie-redvelvet: #8a1d20;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --background: #120c0a;
+  --foreground: #fcf9f2;
 }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-vazirmatn), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #120c0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #4b3621;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a880;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(18, 12, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(252, 249, 242, 0.08);
+}
+
+.glass-light {
+  background: rgba(252, 249, 242, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(252, 249, 242, 0.05);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
